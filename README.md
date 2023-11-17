@@ -17,8 +17,8 @@ This repository contains the source code for the website of our ICCV 2023 paper.
 If you find our work useful for your research, please cite our paper:
 ```bibtex
 @article{osborn,
-  author    = {Aveen Dayal, Vimal K B,Vineeth N Balasubramanian},
-  title     = {BMADG: Margin-based Adversarial Learning for Domain Generalization},
+  author    = {Aveen Dayal, Vimal K. B., Linga Reddy Cenkeramaddi, C. Krishna Mohan, Abhinav Kumar, Vineeth N Balasubramanian},
+  title     = {MADG: Margin-based Adversarial Learning for Domain Generalization},
   journal   = {NeurIPS},
   year      = {2023},
 }
