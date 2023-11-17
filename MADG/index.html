@@ -98,7 +98,7 @@
               <span class="author-block">
                 <a href="">Aveen Dayal</a><sup>1</sup>,</span>
               <span class="author-block">
-                <a href="">Vimal K B</a><sup>1</sup><sup>,</sup><sup>1</sup>,</span>
+                <a href="">Vimal K B</a><sup>1</sup>,</span>
               <span class="author-block">
                 <a href="">Linga Reddy Cenkeramaddi</a><sup>2</sup>,
               </span>
@@ -126,7 +126,7 @@
               <div class="publication-links">
                 <!-- PDF Link. -->
                 <span class="link-block">
-                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://arxiv.org/pdf/2311.08503.pdf" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
@@ -134,7 +134,7 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://arxiv.org/abs/2311.08503" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
                     </span>
@@ -153,7 +153,7 @@
               </span> -->
                 <!-- Code Link. -->
                 <span class="link-block">
-                  <a href="https://github.com/sakethbachu/OSBORN" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://github.com/qwedaq/MADG" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
@@ -299,19 +299,15 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">Task Objective</h2>
-          <div class="content has-text-centered">
+          <!-- <div class="content has-text-centered">
             <p>
-              <img src="static\images\OSBORN-FINAL-1.png" alt="Image Description">
+              <img src="static\images\MDD1_page-0001.png" alt="Image Description">
             </p><br>
-            Figure 1: Illustration of the objective and problem setting of our proposed metric.
-          </div>
+            Figure 1: Space of intersection (agreement) in MDD (yellow) is reduced as compared to 0-1 loss (blue + yellow) between f and f′ for labels {0,1}
+          </div> -->
           <div class="content has-text-justified">
             <p>
-              Given a source pool containing M datasets accompanied by a pre-trained model each and a target dataset,
-              OSBORN selects a subset of models i.e., an Ensemble such that the Domain Difference, Task Difference are
-              low
-              and the Model Cohesion is high by employing a submodular approach. Please refer to Section 1 of the paper
-              for more details.
+              Propose an algorithm, a novel margin-based adversarial learning approach for DG, which shows consistent performance over other state-of-the-art methods across benchmarks and derive a generalization bound for an unseen domain based on the margin-based MDD loss in the DG setting.
             </p>
           </div>
         </div>
@@ -326,19 +322,21 @@
           <h2 class="title is-3">Method</h2>
           <div class="content has-text-centered">
             <p>
-              <img src="static\images\OSBORN-Page-12.png" alt="Image Description" width="600">
+              <img src="static\images\MDD1_page-0001.png" alt="Image Description" width="600">
             </p><br>
-            Figure 2: Overview of our method for estimating the transferability for ensembles.
+            Figure 1: Space of intersection (agreement) in MDD (yellow) is reduced as compared to 0-1 loss (blue + yellow) between f and f′ for labels {0,1}
           </div>
           <div class="content has-text-justified">
             <p>
-              We define OSBORN for a subset of models \(M_e\) of our source pool \(M\) as follows. Our metric
-              collectively
-              accounts for domain difference, task difference and model cohesion. A model ensemble that obtains a low
-              OSBORN score will have better transferability to a target dataset. Our experiments show that a simple
-              combination of these three quantities (with no weighting co-efficients) outperforms existing methods in
-              all our experiments. In our ablation studies and analysis, we study the contribution of each OSBORN
-              component as well as the effect of weighting each component differently.
+              Derived a generalization bound for an unseen
+              domain based on the margin-based MDD loss in the DG
+              setting. To this end, we first show an upper bound on the
+              unlabeled source domain error given other labeled source
+              domains. We then leverage this to develop the upper bound for the error on an unseen domain
+              that is not necessarily a source domain. We subsequently analyze the upper bound
+              from Corollary 1 using the Rademacher complexity framework and develop our final generalization
+              bound for the unseen target domain in the DG setting using our margin-
+              based loss.
             </p>
           </div>
         </div>
@@ -352,32 +350,32 @@
         <div class="column is-four-fifths">
           <h2 class="title is-3">Results</h2>
           <div class="content has-text-centered">
-            <h3 class="subtitle">Image Classification using fully-supervised learning</h3>
+            <h3 class="subtitle">Image Classification DomainBed</h3>
             <p>
-              <img src="static\images\Table3.png" alt="Image Description">
+              <img src="static\images\MADG_Results.png" alt="Image Description">
             </p>
             <p>
               <!-- Placeholder for Table 3 -->
-              Table 1: Comparison of different ensemble transferability estimation metrics for fully-supervised models
-              (classification tasks). The best results are indicated in bold. Note: MS: MS-LEEP, E: E-LEEP, Ours:
-              OSBORN.
+              Table 1: Accuracy(%) on benchmark DG datasets. Values in red and orange are best and second best-
+              performing models in a column, respectively. We report deviation as ±N/A for models that did not report them.
+              OH = OfficeHome dataset, TI = TerraIncognita dataset, DN = DomainNet dataset, M = Median rank, AD =
+              Arithmetic mean of differences, GD = Geometric mean of differences, Avg. = Average accuracy(%).
             </p>
 
-            <h3 class="subtitle">Image Classification using self-supervised learning</h3>
+            <!-- <h3 class="subtitle">Image Classification using self-supervised learning</h3>
             <p>
               <img src="static\images\Table4.png" alt="Image Description">
             </p>
             <p>
-              <!-- Placeholder for Table 4 -->
-              Table 2: Comparison of different ensemble transferability estimation metrics for self-supervised
+              <!-- Table 2: Comparison of different ensemble transferability estimation metrics for self-supervised
               pre-trained models (classification tasks). The best results are indicated in bold. Note: MS: MS-LEEP, E:
-              E-LEEP and Ours: OSBORN.
-            </p>
+              E-LEEP and Ours: OSBORN. -->
+            <!-- </p> -->
           </div>
         </div>
       </div>
     </div>
-    <div class="container is-max-desktop">
+    <!-- <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <div class="content has-text-centered">
@@ -387,7 +385,6 @@
               <img src="static\images\tSNE_Plots_FSL (1).png" alt="Image Description">
             </p>
             <p>
-              <!-- Placeholder for Table 3 -->
               t-SNE plots of features learned by corresponding method's ensembles on StanfordCars dataset.
               <i>Optimal</i> chooses best ensemble with exhaustive search
             </p>
@@ -395,7 +392,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </section>
 
 
@@ -535,10 +532,9 @@
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>@article{osborn,
-  author    = {Vimal K B, Saketh Bachu, Tanmay Garg, Vineeth N Balasubramanian, Niveditha Lakshmi Narasimhan, Raghavan Konuru},
-  title     = {Building a Winning Team: Selecting Source Model Ensembles using a Submodular Transferability Estimation
-               Approach},
-  journal   = {ICCV},
+  author    = {Aveen Dayal, Vimal K. B., Linga Reddy Cenkeramaddi, C. Krishna Mohan, Abhinav Kumar, Vineeth N Balasubramanian},
+  title     = {MADG: Margin-based Adversarial Learning for Domain Generalization},
+  journal   = {NeurIPS},
   year      = {2023},
 }</code></pre>
     </div>
@@ -548,9 +544,8 @@
       <h2 class="title">Contact Us</h2>
       Please contact us any of the following email IDs for further information regarding our paper
       <pre><code>
+        ai21resch11003@iith.ac.in, 
         vimalkb96@gmail.com, 
-        saketh7000@gmail.com, 
-        gargtanmay1@gmail.com, 
         vineethnb@cse.iith.ac.in
       </code></pre>
     </div>
@@ -563,7 +558,7 @@
         <a class="icon-link" href="">
           <i class="fas fa-file-pdf"></i>
         </a>
-        <a class="icon-link" href="https://github.com/sakethbachu/OSBORN" class="external-link" disabled>
+        <a class="icon-link" href="https://github.com/qwedaq/MADG" class="external-link" disabled>
           <i class="fab fa-github"></i>
         </a>
       </div>
@@ -576,7 +571,7 @@
                 Commons Attribution-ShareAlike 4.0 International License</a>.
             </p>
             <p>
-              The source code for this website can be viewed <a href="https://github.com/vimalkb007/vimalkb007.github.io.git">here</a>.
+              The source code for this website can be viewed <a href="https://github.com/vimalkb007/MADG">here</a>.
             </p>
             <p>
               The source code for the website is borrowed from this <a href="https://github.com/nerfies/nerfies.github.io">repository</a>.
